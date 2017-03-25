@@ -1,0 +1,16 @@
+{
+
+    "guacamoleVersion" : "0.9.11-incubating",
+
+    "name"      : "Disabled Authentication",
+    "namespace" : "guac-noauth",
+
+    "authProviders" : [
+        "org.apache.guacamole.auth.noauth.NoAuthenticationProvider"
+    ],
+
+    "translations" : [
+        "translations/en.json"
+    ]
+
+}

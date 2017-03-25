@@ -1,0 +1,39 @@
+<div class="settings section users" ng-class="{loading: !isLoaded()}">
+
+    <!-- User management -->
+    <p>{{'SETTINGS_USERS.HELP_USERS' | translate}}</p>
+
+
+    <!-- User management toolbar -->
+    <div class="toolbar">
+
+        <!-- Form action buttons -->
+        <div class="action-buttons">
+            <a class="add-user button" ng-show="canCreateUsers()"
+               href="#/manage/{{getDefaultDataSource()}}/users/">{{'SETTINGS_USERS.ACTION_NEW_USER' | translate}}</a>
+        </div>
+
+        <!-- User filter -->
+        <guac-filter filtered-items="filteredManageableUsers" items="manageableUsers"
+                     placeholder="'SETTINGS_USERS.FIELD_PLACEHOLDER_FILTER' | translate"
+                     properties="filteredUserProperties"></guac-filter>
+
+    </div>
+
+    <!-- List of users this user has access to -->
+    <div class="user-list">
+        <div ng-repeat="manageableUser in manageableUserPage" class="user list-item">
+            <a ng-href="#/manage/{{manageableUser.dataSource}}/users/{{manageableUser.user.username}}">
+                <div class="caption">
+                    <div class="icon user"></div>
+                    <span class="name">{{manageableUser.user.username}}</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Pager controls for user list -->
+    <guac-pager page="manageableUserPage" page-size="25"
+                items="filteredManageableUsers | orderBy : 'user.username'"></guac-pager>
+
+</div>
