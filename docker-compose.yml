@@ -2,7 +2,7 @@ version: '2'
 
 services:
   postgres:
-    image: postgres:9.6.2-alpine
+    image: dmitryzagr/rpi-guacamole:latest
     restart: always
     volumes:
       - ./db/init:/docker-entrypoint-initdb.d
@@ -21,7 +21,7 @@ services:
     ports:
       - "4822:4822"
   guac:
-    image: glyptodon/guacamole:latest
+    image: dmitryzagr/rpi-guacamole:latest
     restart: always
     ports:
       - "8080:8080"
